@@ -21,25 +21,33 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+          
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5
+        
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+        
       - name: Build with Gradle Wrapper
         run: ./gradlew build
+        
       - name: Build Docker image
         run: docker build -t jwt .
+        
       - name: Save Docker image
         run: docker save jwt | gzip > jwt.tar.gz
+        
       - name: Upload Docker image to EC2
         uses: appleboy/scp-action@v0.1.1
+        
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ec2-user
+          username: ubuntu
           key: ${{ secrets.AWS_SSH_KEY }}
           port: 22
           source: "jwt.tar.gz"
           target: "/home/ec2-user"
+          
       - name: Deploy Docker image on EC2
         uses: appleboy/ssh-action@v0.1.4
         with:
