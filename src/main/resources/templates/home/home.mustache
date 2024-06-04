@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Page</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column; /* 요소들을 세로 방향으로 정렬 */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .email-box {
+            width: 480px; /* 박스를 가로로 길게 설정 */
+            height: 50px; /* 높이 조정 */
+            background-color: #6A24FE;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            margin-bottom: 20px; /* 이메일 박스와 버튼 사이의 간격 */
+            font-size: 20px;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: row; /* 버튼들을 가로 방향으로 정렬 */
+            justify-content: center;
+            gap: 10px; /* 버튼 사이의 간격 */
+        }
+        .button {
+            width: 150px;
+            height: 150px;
+            background-color: #6A24FE;
+            color: white;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="email-box">{{userEmail}}님</div>
+<div class="buttons">
+    <button class="button" onclick="location.href='http://localhost:8090/team4/user_admin'">사용자 서비스</button>
+    <button class="button" onclick="location.href='http://localhost:8090/team4/admin'">관리자 서비스</button>
+    <button class="button" onclick="location.href='http://localhost:8090/team4/logout'">로그아웃</button>
+</div>
+</body>
+</html>

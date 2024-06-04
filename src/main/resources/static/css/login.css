@@ -1,0 +1,86 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+body{
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-wrapper{
+    width: 400px;
+    height: 350px;
+    padding: 40px;
+    box-sizing: border-box;
+    position: relative;  /* 중앙 정렬을 위한 기준점 설정 */
+}
+
+.login-wrapper > h2{
+    font-size: 24px;
+    color: #6A24FE;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-wrapper > h3{
+    font-size: 20px;
+    color: red;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-form > input{
+    width: 100%;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+    border: 1px solid #d3d3d3;  /* 연한 검은색 테두리 추가 */
+}
+
+#login-form > input::placeholder{
+    color: #D2D2D2;
+}
+#login-form > input[type="submit"]{
+    color: #fff;
+    font-size: 16px;
+    background-color: #6A24FE;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#login-form > input[type="checkbox"]{
+    display: none;
+}
+#login-form > label{
+    color: #999999;
+}
+
+.login-wrapper > button {
+    width: 100%;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px; /* 필요에 따라 조정 */
+    border-radius: 6px;
+    background-color: #6A24FE; /* 로그인 버튼과 동일한 배경 색 */
+    border: none; /* 로그인 버튼과 같이 테두리 없음 */
+    color: #fff; /* 텍스트 색상 흰색 */
+    font-size: 16px; /* 로그인 버튼과 동일한 폰트 크기 */
+    cursor: pointer; /* 클릭 가능한 요소임을 나타내는 커서 스타일 */
+    display: block; /* block 레벨 요소로 변경 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
