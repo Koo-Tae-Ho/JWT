@@ -46,13 +46,13 @@ jobs:
           key: ${{ secrets.AWS_SSH_KEY }}
           port: 22
           source: "jwt.tar.gz"
-          target: "/home/ec2-user"
+          target: "/home/ubuntu"
           
       - name: Deploy Docker image on EC2
         uses: appleboy/ssh-action@v0.1.4
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ec2-user
+          username: ubuntu
           key: ${{ secrets.AWS_SSH_KEY }}
           port: 22
           script: |
