@@ -86,9 +86,6 @@ public class JwtUtils {
                                                 "SameSite=None; " +
                                                 "Secure; ");
 
-
-
-
         response.addHeader("Set-Cookie", "refresh_token=" + refreshToken + " ; " +
                 "Path=/; " +
                 "Domain=ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +

@@ -17,7 +17,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
+                redirect : 'follow',
                 body: JSON.stringify(data)
+            }).then(resp => resp.json()).
+            then(resp => {
+                resp.redirect(resp.url);
             });
 
             if (!loginResponse.ok) {
