@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         try {
-            const loginResponse = await fetch('http://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com:8090/user/login', {
+            const loginResponse = await fetch('https://team4project.site/user/login', {
                 method: 'POST',
                 credentials : 'include',
                 headers: {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (!loginResponse.ok) {
                 throw new Error('Login failed');
-            } else location.href ="http://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com:8090/team4/home"
+            } else location.href ="https://team4project.site/team4/home"
 
         } catch (error) {
             console.error('Error:', error);
