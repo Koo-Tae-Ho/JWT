@@ -77,7 +77,7 @@ public class JwtUtils {
     public void addJwtToHttpOnlyForSSR(String accessToken, String refreshToken, HttpServletResponse response) {
         response.addHeader("Set-Cookie", "access_token=" + accessToken + " ; " +
                                                 "Path=/; " +
-                                                "Domain=ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +
+                                                "Domain=https://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +
                                                 "HttpOnly; " +
                                                 "Max-Age=3600000; " +
                                                 "SameSite=None; " +
@@ -85,7 +85,7 @@ public class JwtUtils {
 
         response.addHeader("Set-Cookie", "refresh_token=" + refreshToken + " ; " +
                 "Path=/; " +
-                "Domain=ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +
+                "Domain=https://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +
                 "HttpOnly; " +
                 "Max-Age=3600000; " +
                 "SameSite=None; " +
