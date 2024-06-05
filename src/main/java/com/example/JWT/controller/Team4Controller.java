@@ -10,6 +10,7 @@ import com.example.JWT.user.dto.UserRegisterDto;
 import com.example.JWT.user.dto.UserResponseDto;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -62,7 +63,7 @@ public class Team4Controller {
     }
 
     @PostMapping("/register")
-    public String register(@ModelAttribute UserRegisterDto userRegisterDto){
+    public String register(@Valid  @ModelAttribute UserRegisterDto userRegisterDto){
         userService.registerUser(userRegisterDto);
         return "login/login";
     }
