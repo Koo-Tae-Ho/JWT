@@ -47,7 +47,6 @@ public class JwtFilter implements Filter {
             userService.updateRefreshToken(authenticateUser.getEmail(), tokens[1]);
 
             response.getWriter().write("success");
-            ((HttpServletResponse) response).sendRedirect("http://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com:8090/team4/home");
             return;
         }
 
