@@ -60,4 +60,5 @@ jobs:
             docker stop jwt || true
             docker rm  jwt || true
             docker run -d -p 8090:8090 --name jwt jwt
+            docker image prune -f --filter "dangling=true"
 
