@@ -13,6 +13,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public String handleException(MethodArgumentNotValidException ex, HttpServletResponse response) throws IOException {
 
-        return "team4/signup";
+        return "sign/signup";
     }
 }
