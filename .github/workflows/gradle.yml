@@ -58,6 +58,6 @@ jobs:
           script: |
             docker load < jwt.tar.gz
             docker stop jwt || true
-            docker rmi -f jwt || true
-            docker run -d -p 8090:8090 jwt
+            docker rm  jwt || true
+            docker run -d -p 8090:8090 --name jwt jwt
 
