@@ -50,7 +50,7 @@ public class Team4Controller {
     public String logout(HttpServletResponse response) {
         response.addHeader("Set-Cookie", "access_token= ; " +
                 "Path=/; " +
-                "Domain=localhost; " +
+                "Domain=ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +
                 "HttpOnly; " +
                 "Max-Age=0; " +
                 "SameSite=None; " +

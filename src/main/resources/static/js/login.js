@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         try {
-            const loginResponse = await fetch('http://localhost:8090/user/login', {
+            const loginResponse = await fetch('http://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com:8090/user/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (!loginResponse.ok) {
                 throw new Error('Login failed');
-            } else location.href ="http://localhost:8090/team4/home"
+            } else location.href ="http://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com:8090/team4/home"
 
         } catch (error) {
             console.error('Error:', error);
@@ -30,5 +30,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.getElementById('signup-button').addEventListener('click', function() {
-    location.href ="http://localhost:8090/team4/signup"
+    location.href ="http://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com:8090/team4/signup"
 });
