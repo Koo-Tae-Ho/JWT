@@ -82,15 +82,13 @@ public class JwtUtils {
                                                 "Path=/; " +
                                                 "Domain=ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +
                                                 "HttpOnly; " +
-                                                "Max-Age=3600000; " +
-                                                "SameSite=None; ");
+                                                "Max-Age=3600000; ");
 
         response.addHeader("Set-Cookie", "refresh_token=" + refreshToken + " ; " +
                 "Path=/; " +
                 "Domain=ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +
                 "HttpOnly; " +
-                "Max-Age=3600000; " +
-                "SameSite=None; ");
+                "Max-Age=3600000; ");
 
     }
 
