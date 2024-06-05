@@ -95,7 +95,7 @@ public class JwtUtils {
 
     // HTTP only 쿠키에 토큰 저장, 도메인 동적 설정
     public void addJwtToHttpOnlyForSSR(String accessToken, String refreshToken, HttpServletRequest request, HttpServletResponse response) {
-        String domain = "3.38.210.153";  // 사용자가 접속한 서버의 이름을 가져옵니다.
+        String domain = request.getServerName();  // 사용자가 접속한 서버의 이름을 가져옵니다.
 
         String cookieSettings = String.format("Path=/; Domain=%s; HttpOnly; Max-Age=3600000; SameSite=None; Secure; ", domain);
 
