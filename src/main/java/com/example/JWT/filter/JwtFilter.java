@@ -8,6 +8,7 @@ import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -41,7 +42,7 @@ public class JwtFilter implements Filter {
 
             //jwt 생성 및 리프레시토큰 DB저장
             String[] tokens = jwtUtils.createJwtForSSR(claims);
-            jwtUtils.addJwtToHttpOnlyForSSR(tokens[0], tokens[1], (HttpServletResponse) response);
+            jwtUtils.addJwtToHttpOnlyForSSR(tokens[0], tokens[1], (HttpServletRequest) request,(HttpServletResponse) response);
             userService.updateRefreshToken(authenticateUser.getEmail(), tokens[1]);
 
             response.getWriter().write("success");
