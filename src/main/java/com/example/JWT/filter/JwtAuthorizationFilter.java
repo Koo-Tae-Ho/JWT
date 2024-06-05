@@ -71,13 +71,12 @@ public class JwtAuthorizationFilter implements Filter {
         }
 
         if(!isContainTokenForSSR(httpServletRequest)){
-            httpServletResponse.sendError(HttpStatus.UNAUTHORIZED.value(),"인증 오류");
+            httpServletResponse.sendRedirect("/team4/login");
             return;
         }
         try{
-            String token = getTokenForSSR(httpServletRequest);
-            if(token == null) ((HttpServletResponse) response).sendRedirect("ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com/team4/login");
 
+            String token = getTokenForSSR(httpServletRequest);
 
             AuthenticateUser authenticateUser = getAuthenticateUser(token);
             String userEmail = authenticateUser.getEmail();
@@ -174,6 +173,8 @@ public class JwtAuthorizationFilter implements Filter {
     }
 
     private boolean isContainTokenForSSR(HttpServletRequest request){
+        if(request.getCookies() ==  null) return false;
+
         for(Cookie c : request.getCookies()) {
             if(c.getName().equals("access_token")) {
                 return true;
@@ -183,8 +184,6 @@ public class JwtAuthorizationFilter implements Filter {
     }
 
     private String getTokenForSSR(HttpServletRequest request){
-        if(request.getCookies().length == 0) return null;
-
        for(Cookie c : request.getCookies()) {
            if(c.getName().equals("access_token")) {
                return c.getValue().substring(6);
