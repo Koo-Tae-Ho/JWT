@@ -42,8 +42,8 @@ public class JwtFilter implements Filter {
 
             //jwt 생성 및 리프레시토큰 DB저장
             String[] tokens = jwtUtils.createJwtForSSR(claims);
-           // jwtUtils.addJwtToHttpOnlyForSSR(tokens[0], tokens[1], (HttpServletResponse) response);
-            jwtUtils.addJwtToHttpOnlyForSSR(tokens[0], tokens[1], (HttpServletRequest) request, (HttpServletResponse) response);
+            jwtUtils.addJwtToHttpOnlyForSSR(tokens[0], tokens[1], (HttpServletResponse) response);
+
             userService.updateRefreshToken(authenticateUser.getEmail(), tokens[1]);
 
             response.getWriter().write("success");

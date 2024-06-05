@@ -132,8 +132,7 @@ public class JwtAuthorizationFilter implements Filter {
 
             //===================================== 액세스 토큰 재발급 =======================================
 
-            //jwtUtils.addJwtToHttpOnlyForSSR(jwt.getAccessToken(), refreshToken, (HttpServletResponse) response);
-            jwtUtils.addJwtToHttpOnlyForSSR(jwt.getAccessToken(), refreshToken, (HttpServletRequest) request, (HttpServletResponse) response);
+            jwtUtils.addJwtToHttpOnlyForSSR(jwt.getAccessToken(), refreshToken, (HttpServletResponse) response);
 
             boolean isAuthorizedUser = verifyAuthorization(httpServletRequest, authenticateUser);
             if(!isAuthorizedUser) {
