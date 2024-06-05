@@ -76,6 +76,9 @@ public class JwtAuthorizationFilter implements Filter {
         }
         try{
             String token = getTokenForSSR(httpServletRequest);
+            if(token == null) ((HttpServletResponse) response).sendRedirect("ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com/team4/login");
+
+
             AuthenticateUser authenticateUser = getAuthenticateUser(token);
             String userEmail = authenticateUser.getEmail();
             UserResponseDto user = userService.findUserByEmail(userEmail);
@@ -180,6 +183,8 @@ public class JwtAuthorizationFilter implements Filter {
     }
 
     private String getTokenForSSR(HttpServletRequest request){
+        if(request.getCookies().length == 0) return null;
+
        for(Cookie c : request.getCookies()) {
            if(c.getName().equals("access_token")) {
                return c.getValue().substring(6);
