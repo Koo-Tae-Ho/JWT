@@ -52,9 +52,7 @@ public class Team4Controller {
                 "Path=/; " +
                 "Domain=ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +
                 "HttpOnly; " +
-                "Max-Age=0; " +
-                "SameSite=None; " +
-                "Secure; ");
+                "Max-Age=0; ");
         return "redirect:/team4/login";
     }
 
