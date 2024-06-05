@@ -31,5 +31,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.getElementById('signup-button').addEventListener('click', function() {
-    location.href ="http://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com:8090/team4/signup"
+    location.href ="https://team4project.site/team4/signup"
 });

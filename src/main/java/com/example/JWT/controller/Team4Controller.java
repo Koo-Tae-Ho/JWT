@@ -52,7 +52,7 @@ public class Team4Controller {
     public String logout(HttpServletResponse response) {
         response.addHeader("Set-Cookie", "access_token= ; " +
                 "Path=/; " +
-                "Domain=ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +
+                "Domain=team4project.site; " +
                 "HttpOnly; " +
                 "Max-Age=0; ");
         return "redirect:/team4/login";
