@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const loginResponse = await fetch('http://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com:8090/user/login', {
                 method: 'POST',
+                credentials : 'include',
                 headers: {
                     'Content-Type': 'application/json'
                 },

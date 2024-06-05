@@ -75,6 +75,9 @@ public class JwtUtils {
 
 //    //HTTP only 쿠키에 토큰 저장
     public void addJwtToHttpOnlyForSSR(String accessToken, String refreshToken, HttpServletResponse response) {
+        response.addHeader("Access-Control-Allow-Credentials", "true");
+        response.addHeader("Access-Control-Expose-Headers", "Set-Cookie");
+
         response.addHeader("Set-Cookie", "access_token=" + accessToken + " ; " +
                                                 "Path=/; " +
                                                 "Domain=ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +
@@ -82,6 +85,9 @@ public class JwtUtils {
                                                 "Max-Age=3600000; " +
                                                 "SameSite=None; " +
                                                 "Secure; ");
+
+
+
 
         response.addHeader("Set-Cookie", "refresh_token=" + refreshToken + " ; " +
                 "Path=/; " +
