@@ -47,6 +47,7 @@ public class JwtFilter implements Filter {
             userService.updateRefreshToken(authenticateUser.getEmail(), tokens[1]);
 
             response.getWriter().write("success");
+            ((HttpServletResponse) response).sendRedirect("/team4/home");
             return;
         }
 

@@ -22,8 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (!loginResponse.ok) {
                 throw new Error('Login failed');
-            } else location.href ="http://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com:8090/team4/home"
-
+            }
         } catch (error) {
             console.error('Error:', error);
         }
