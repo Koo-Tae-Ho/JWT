@@ -73,34 +73,34 @@ public class JwtUtils {
         return new Date(System.currentTimeMillis() + expireTimeMils);
     }
 
-    //HTTP only 쿠키에 토큰 저장
-    public void addJwtToHttpOnlyForSSR(String accessToken, String refreshToken, HttpServletResponse response) {
-        response.addHeader("Set-Cookie", "access_token=" + accessToken + " ; " +
-                                                "Path=/; " +
-                                                "Domain=https://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +
-                                                "HttpOnly; " +
-                                                "Max-Age=3600000; " +
-                                                "SameSite=None; " +
-                                                "Secure; ");
-
-        response.addHeader("Set-Cookie", "refresh_token=" + refreshToken + " ; " +
-                "Path=/; " +
-                "Domain=https://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +
-                "HttpOnly; " +
-                "Max-Age=3600000; " +
-                "SameSite=None; " +
-                "Secure; ");
-
-    }
-
-//    // HTTP only 쿠키에 토큰 저장, 도메인 동적 설정
-//    public void addJwtToHttpOnlyForSSR(String accessToken, String refreshToken, HttpServletRequest request, HttpServletResponse response) {
-//        String domain = "3.38.210.153";  // 사용자가 접속한 서버의 이름을 가져옵니다.
+//    //HTTP only 쿠키에 토큰 저장
+//    public void addJwtToHttpOnlyForSSR(String accessToken, String refreshToken, HttpServletResponse response) {
+//        response.addHeader("Set-Cookie", "access_token=" + accessToken + " ; " +
+//                                                "Path=/; " +
+//                                                "Domain=https://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +
+//                                                "HttpOnly; " +
+//                                                "Max-Age=3600000; " +
+//                                                "SameSite=None; " +
+//                                                "Secure; ");
 //
-//        String cookieSettings = String.format("Path=/; Domain=%s; HttpOnly; Max-Age=3600000; SameSite=None; Secure; ", domain);
+//        response.addHeader("Set-Cookie", "refresh_token=" + refreshToken + " ; " +
+//                "Path=/; " +
+//                "Domain=https://ec2-3-38-210-153.ap-northeast-2.compute.amazonaws.com; " +
+//                "HttpOnly; " +
+//                "Max-Age=3600000; " +
+//                "SameSite=None; " +
+//                "Secure; ");
 //
-//        response.addHeader("Set-Cookie", "access_token=" + accessToken + " ; " + cookieSettings);
-//        response.addHeader("Set-Cookie", "refresh_token=" + refreshToken + " ; " + cookieSettings);
 //    }
+
+    // HTTP only 쿠키에 토큰 저장, 도메인 동적 설정
+    public void addJwtToHttpOnlyForSSR(String accessToken, String refreshToken, HttpServletRequest request, HttpServletResponse response) {
+        String domain = "3.38.210.153";  // 사용자가 접속한 서버의 이름을 가져옵니다.
+
+        String cookieSettings = String.format("Path=/; Domain=%s; HttpOnly; Max-Age=3600000; SameSite=None; Secure; ", domain);
+
+        response.addHeader("Set-Cookie", "access_token=" + accessToken + " ; " + cookieSettings);
+        response.addHeader("Set-Cookie", "refresh_token=" + refreshToken + " ; " + cookieSettings);
+    }
 
 }
